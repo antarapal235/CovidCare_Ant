@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="register" type="id" />
+    <item name="createText" type="id" />
+    <item name="loginBtn" type="id" />
+</resources>
