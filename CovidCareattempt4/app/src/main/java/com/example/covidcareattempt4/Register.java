@@ -33,8 +33,8 @@ public class Register extends AppCompatActivity {
         mLastName = findViewById(R.id.lastname);
         mEmail = findViewById(R.id.emailaddress);
         mPassword = findViewById(R.id.editTextTextPassword);
-        mRegisterBtn = findViewById(R.id.register);
-        mLoginBtn = findViewById(R.id.createText);
+        mRegisterBtn = findViewById(R.id.button);
+        mLoginBtn = findViewById(R.id.textView4);
 
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
