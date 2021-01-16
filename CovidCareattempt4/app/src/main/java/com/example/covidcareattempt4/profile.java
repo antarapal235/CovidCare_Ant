@@ -6,71 +6,115 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 public class profile extends AppCompatActivity {
 
-    TextView FirstName, LastName, Email, Vaccine;
-    ImageView User_image, Email_image, Vaccine_image;
-    private FirebaseDatabase database;
-    private DatabaseReference mDatabase;
-    private static final String USERS = "users";
-    private String email;
-    private String userid;
+    private FirebaseDatabase mFirebasedatabase;
+    private DatabaseReference myRef;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private static final String TAG = "ViewDatabase";
+    private String userId;
 
+    private ListView mListView;
+
+    
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        FirstName = findViewById(R.id.firstname);
-        LastName = findViewById(R.id.lastname);
-        Email = findViewById(R.id.email_textview);
-        Vaccine = findViewById(R.id.vaccine_textview);
-        User_image = findViewById(R.id.user_image);
-        Email_image = findViewById(R.id.email_imageview);
-        Vaccine_image = findViewById(R.id.vaccine_imageview);
-
-        Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        mListView = (ListView) findViewById(R.id.listview);
+        mFirebasedatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebasedatabase.getReference();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        userId = user.getUid();
 
 
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userRef = rootRef.child(USERS);
-        Log.v("USERID", userRef.getKey());
 
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
-        //Database still needs to be craeted!!!
-        userRef.addValueEventListener(new ValueEventListener() {
-            String fname, lname, mail, vaccinated;
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+
+                }
+                // ...
+            }
+        };
+
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
-                    if (keyId.child("email").getValue().equals(email)) {
-                        fname = keyId.child("firstName").getValue(String.class);
-                        lname = keyId.child("lastName").getValue(String.class);
-                        vaccinated = keyId.child("vaccinated").getValue(String.class);
-                        break;
-                    }
+                showData(dataSnapshot);
                 }
-                FirstName.setText(fname);
-                LastName.setText(lname);
-                Email.setText(email);
-                Vaccine.setText(vaccinated);
-            }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+    }
+
+    private void showData (DataSnapshot dataSnapshot) {
+        for (DataSnapshot ds: dataSnapshot.getChildren()) {
+            UserInformation uInfo = new UserInformation();
+            uInfo.setEmail(ds.child(userId).getValue(UserInformation.class).getEmail());
+            uInfo.setFirstName(ds.child(userId).getValue(UserInformation.class).getFirstName());
+            uInfo.setLastName(ds.child(userId).getValue(UserInformation.class).getLastName());
+            uInfo.setVaccinated(ds.child(userId).getValue(UserInformation.class).getVaccinated());
+
+            Log.d(TAG, "showData: email: " + uInfo.getEmail());
+            Log.d(TAG, "showData: firstName: " + uInfo.getFirstName());
+            Log.d(TAG, "showData: lastName: " + uInfo.getLastName());
+            Log.d(TAG, "showData: vaccinated: " + uInfo.getVaccinated());
+
+            ArrayList<String> array  = new ArrayList<>();
+            array.add(uInfo.getEmail());
+            array.add(uInfo.getFirstName());
+            array.add(uInfo.getLastName());
+            array.add(uInfo.getVaccinated());
+            ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,array);
+            mListView.setAdapter(adapter);
+        }
+    }
+
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+
+
 
     }
-}
