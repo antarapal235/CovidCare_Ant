@@ -14,13 +14,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/allerta"
         android:text="Create New Account"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <TextView
         android:id="@+id/textView3"
@@ -28,13 +29,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/allerta"
         android:text="CovidCare"
+        android:textColor="#673AB7"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <EditText
         android:id="@+id/firstname"
@@ -106,8 +109,8 @@
         android:layout_height="51dp"
         android:layout_marginTop="48dp"
         android:text="Register"
-        android:textColor="#171717"
-        app:backgroundTint="#70FF9800"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,6 +123,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/allerta"
         android:text="Already Registered? Login here"
+        android:textColor="#000000"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,5 +143,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.26" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="123dp"
+        android:layout_height="134dp"
+        app:srcCompat="@drawable/ic__wmalywc01"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
