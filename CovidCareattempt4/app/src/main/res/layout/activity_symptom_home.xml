@@ -66,21 +66,21 @@
                 android:text="Cough" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/checkBox4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Headache" />
 
             <CheckBox
-                android:id="@+id/checkBox7"
+                android:id="@+id/checkBox5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Congestion or runny nose" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/checkBox6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -89,7 +89,7 @@
                 android:text="Shortness of Breath/Difficulty Breathing" />
 
             <CheckBox
-                android:id="@+id/checkBox6"
+                android:id="@+id/checkBox7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
