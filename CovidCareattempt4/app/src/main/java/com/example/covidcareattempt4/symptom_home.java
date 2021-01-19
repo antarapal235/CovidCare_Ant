@@ -35,26 +35,30 @@ public class symptom_home extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        StringBuffer result = new StringBuffer();
-                        result.append("checkBox1: ").append(mcheckBox1.isChecked());
-                        result.append(" checkBox2: ").append(mcheckBox2.isChecked());
-                        result.append(" checkBox3: ").append(mcheckBox3.isChecked());
-                        result.append(" checkBox4: ").append(mcheckBox4.isChecked());
-                        result.append(" checkBox5: ").append(mcheckBox5.isChecked());
-                        result.append(" checkBox6: ").append(mcheckBox6.isChecked());
-                        result.append(" checkBox7: ").append(mcheckBox7.isChecked());
-                        result.append(" checkBox8: ").append(mcheckBox8.isChecked());
-                        result.append(" checkBox9: ").append(mcheckBox9.isChecked());
-
-                        Log.d("Debug", "onClick: pp");
-
-                        Toast.makeText(symptom_home.this, result.toString(), Toast.LENGTH_LONG).show();
+                        openDialog();
                     }
                 }
 
         );
     }
 
-
+    public void openDialog() {
+        boolean isChecked1 = mcheckBox1.isChecked();
+        boolean isChecked2 = mcheckBox2.isChecked();
+        boolean isChecked3 = mcheckBox3.isChecked();
+        boolean isChecked4 = mcheckBox4.isChecked();
+        boolean isChecked5 = mcheckBox5.isChecked();
+        boolean isChecked6 = mcheckBox6.isChecked();
+        boolean isChecked7 = mcheckBox7.isChecked();
+        boolean isChecked8 = mcheckBox8.isChecked();
+        boolean isChecked9 = mcheckBox9.isChecked();
+        if(isChecked8){
+            popup_dialog_negative popDia = new popup_dialog_negative();
+            popDia.show(getSupportFragmentManager(), "example dialog");
+        }else{
+            popup_dialog popDia2 = new popup_dialog();
+            popDia2.show(getSupportFragmentManager(), "example dialog");
+        }
+    }
 
 }
