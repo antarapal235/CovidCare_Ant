@@ -16,7 +16,7 @@ public class popup_dialog extends AppCompatDialogFragment {
                 .setMessage("Press OK to return to the Dashboard").setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
 

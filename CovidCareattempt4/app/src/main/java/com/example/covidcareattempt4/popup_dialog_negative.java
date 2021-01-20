@@ -2,6 +2,7 @@ package com.example.covidcareattempt4;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Dialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
@@ -16,7 +17,7 @@ public class popup_dialog_negative extends AppCompatDialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         }).setNegativeButton("Dial 911", new DialogInterface.OnClickListener() {
             @Override
