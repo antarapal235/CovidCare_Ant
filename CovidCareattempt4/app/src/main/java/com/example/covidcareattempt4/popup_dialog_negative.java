@@ -11,12 +11,14 @@ public class popup_dialog_negative extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Information").setMessage("This is the Dialog").setPositiveButton("OH FUCK", new DialogInterface.OnClickListener() {
+        builder.setTitle("ALERT: You have indicated the presence of symptoms of Covid-19. ")
+                .setMessage("If you are feeling unwell and believe it is an emergency please dial 911 below. Alternatively, press OK to return to the Dashboard")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
 
             }
-        }).setNegativeButton("Call 911", new DialogInterface.OnClickListener() {
+        }).setNegativeButton("Dial 911", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 

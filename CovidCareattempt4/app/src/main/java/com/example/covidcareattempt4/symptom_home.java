@@ -52,7 +52,7 @@ public class symptom_home extends AppCompatActivity {
         boolean isChecked7 = mcheckBox7.isChecked();
         boolean isChecked8 = mcheckBox8.isChecked();
         boolean isChecked9 = mcheckBox9.isChecked();
-        if(isChecked8){
+        if(isChecked1 || isChecked2 || isChecked3 || isChecked4 || isChecked5 || isChecked6 || isChecked7 || isChecked8 || isChecked9 ){
             popup_dialog_negative popDia = new popup_dialog_negative();
             popDia.show(getSupportFragmentManager(), "example dialog");
         }else{
