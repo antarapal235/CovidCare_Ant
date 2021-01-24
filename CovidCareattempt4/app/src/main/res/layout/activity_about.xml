@@ -49,7 +49,7 @@
             android:padding="10dp"
             android:textAlignment="center"
             android:textStyle="italic"
-            android:text="CovidCare is a community-driven web and mobile-based application that increases user awareness of any health-related issues that might threaten community well-being."
+            android:text="Community Care is a community-driven web and mobile-based application that increases user awareness of any health-related issues that might threaten community well-being."
             android:textSize="24dp" />
 
         <TextView
