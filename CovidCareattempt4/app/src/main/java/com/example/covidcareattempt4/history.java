@@ -39,7 +39,10 @@ public class history extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list.add(snapshot.getValue().toString());
+                    String date = new java.text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new java.util.Date (Integer.parseInt(snapshot.getKey().toString())*1000));
+
+                    list.add(snapshot.getValue().toString() + ": " + snapshot.getKey());
+
                     Log.d("children", snapshot.getValue().toString());
                 }
                 adapter.notifyDataSetChanged();
@@ -50,5 +53,6 @@ public class history extends AppCompatActivity {
 
             }
         });
+
     }
 }
