@@ -33,7 +33,7 @@ public class history extends AppCompatActivity {
         ListView = (ListView) findViewById(R.id.listview);
         ListView.setAdapter(adapter);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("antarapal235");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("user").child("antarapal235").child("log");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
