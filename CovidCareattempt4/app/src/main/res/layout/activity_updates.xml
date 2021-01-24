@@ -305,10 +305,10 @@
 
         <TextView
             android:layout_width="270dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_gravity="center"
-            android:background="#60FFC107"
+            android:background="@drawable/border"
             android:textColor="#3A2C2C"
             android:text="All Articles Sourced From Google Public API"
             android:textSize="20sp"

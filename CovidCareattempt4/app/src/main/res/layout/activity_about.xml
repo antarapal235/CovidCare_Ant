@@ -22,12 +22,13 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:id="@+id/welcome2"
+            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/allerta"
-            android:text="About CovidCare"
-            android:textColor="#000000"
+            android:text="About Community Care"
+            android:textAlignment="center"
+            android:textColor="#673AB7"
             android:textSize="36sp"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -44,20 +45,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="#60CBCC64"
+            android:background="@drawable/border"
             android:padding="10dp"
             android:textAlignment="center"
+            android:textStyle="italic"
             android:text="CovidCare is a community-driven web and mobile-based application that increases user awareness of any health-related issues that might threaten community well-being."
             android:textSize="24dp" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="match_parent"
-            android:layout_height="207dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
+            android:background="@drawable/border"
+            android:textStyle="bold"
             android:text="Made with Love for Minnehacks 2021"
             android:textAlignment="center"
             android:textColor="#000000"
