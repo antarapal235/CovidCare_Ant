@@ -11,13 +11,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -309,6 +308,7 @@
             android:layout_height="45dp"
             android:textAlignment="center"
             android:layout_gravity="center"
+            android:background="#60FFC107"
             android:textColor="#3A2C2C"
             android:text="All Articles Sourced From Google Public API"
             android:textSize="20sp"
