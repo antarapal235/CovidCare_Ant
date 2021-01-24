@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/history_vertical_margin"
+    android:paddingLeft="@dimen/history_horizontal_margin"
+    android:paddingRight="@dimen/history_horizontal_margin"
+    android:paddingTop="@dimen/history_vertical_margin"
     android:background="@drawable/appbackground"
     tools:context=".history">
 
     <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview" />
-
-
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp">
+    </ListView>
 </RelativeLayout>

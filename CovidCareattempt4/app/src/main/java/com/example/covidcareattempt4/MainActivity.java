@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Updates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), about.class));
+                startActivity(new Intent(getApplicationContext(), updates.class));
             }
         });
 
